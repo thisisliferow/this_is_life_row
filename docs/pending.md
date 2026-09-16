@@ -9,7 +9,7 @@ Keep these off the published page until they are supplied. Do not invent values.
 - Who we’re here for: misunderstandings, voluntarily shared pressures, ambitions.
 - Why here: Arts District and Boyle Heights neighborhood life. No invented center address.
 - One community: friends, bikes, belonging, respect, looking out for one another.
-- What access means / Field days: what they want to try, where they want to go, who they want to learn from.
+- What access means: what they want to try, where they want to go, who they want to learn from.
 - Curriculum: effort, accepting help, keeping commitments, conflict, repair.
 - Graduation and beyond: who they want to become; what they want younger people to learn.
 
@@ -17,11 +17,11 @@ Use authentic quotes only. Keep original context and approved identification.
 
 ## Facts still needed
 
-- Participant age range, class size, program length, and weekly schedule.
-- Frequency and delivery of therapy, meals, fitness, field days, and financial guidance.
-- Confirmed providers, staff, partnerships, referral routes, and enrollment process.
-- Graduation requirements and support after graduation.
+- Confirmed participant age range, eligibility, geography, dates, and enrollment process.
+- Confirmed venue, facilitators, mentors, specialist sessions, and community project host.
+- Confirmed quotes for staffing, meals, transportation, venue, insurance, and administration.
 - Faith participation expectations; do not invent an admissions policy.
-- Budget by care, staffing, meals, facilities, transportation, activities, and administration.
-- Cost per participant, with donated services disclosed separately.
-- Progress reporting: attendance, completion, participant feedback, practical skills, and next steps.
+- Confirmed nonprofit or tax status, who receives funds, and how unused funds are handled.
+- Graduation requirements and support after graduation.
+
+Proposed first-cohort planning values (not confirmed): 12 students, 12 weeks, 36 group hours, about $1,600 per student, $19,100 funding target. Estimates cover the weekly gathering only—not licensed therapy, gyms, or field days.
