@@ -27,7 +27,7 @@ export const access: GuideGroup = {
         {
           id: "skills-mentorship",
           heading: "Skills and mentorship.",
-          body: "Financial education, creative skills, and time with entrepreneurs and working professionals.",
+          body: "Financial literacy, creative skills, and trade development.",
           image: {
             src: "/access/skills-opportunity.jpg",
             alt: "Young men gathered around a minibike on a concrete barrier.",
@@ -36,7 +36,7 @@ export const access: GuideGroup = {
         {
           id: "community-service",
           heading: "Leadership through service. ",
-          body: "Contributing to other nonprofit services, beach cleanups, and helping the homeless.",
+          body: "Suppporting beach cleanups, and helping the homeless.",
           image: {
             src: "/access/leadership-service.jpg",
             alt: "Three young men riding a BMX, an electric bike, and a skateboard down a residential street.",
@@ -45,7 +45,7 @@ export const access: GuideGroup = {
         {
           id: "outings-across-la",
           heading: "Outings across LA.",
-          body: "Field days and group trips to explore the city, try new activities, and explore hobbies and interests.",
+          body: "Group field days exploring hobbies and interests.",
           image: {
             src: "/access/experiences-across-la.jpg",
             alt: "Young men looking out over the Los Angeles skyline.",

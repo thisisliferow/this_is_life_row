@@ -20,13 +20,13 @@ export const support: GuideGroup = {
         },
         {
           id: "partner",
-          heading: "Partner with us.",
+          heading: "Back us.",
           body: "Provide space, professional services, or recurring funding through your organization.",
           href: "/partner",
         },
         {
           id: "interest-list",
-          heading: "Join the interest list.",
+          heading: "Families.",
           body: "Get updates when eligibility, dates, and enrollment are confirmed.",
           href: "/interest",
         },

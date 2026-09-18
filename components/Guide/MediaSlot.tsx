@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 
 const POSTER = "/hero/poster.jpg";
 const MP4 = "/hero/hero.mp4";
-const VIDEO_WIDTH = 1622;
+const VIDEO_WIDTH = 1920;
 const VIDEO_HEIGHT = 1080;
 
 export function MediaSlot({ fill = false }: { fill?: boolean } = {}) {
