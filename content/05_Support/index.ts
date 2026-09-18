@@ -14,8 +14,8 @@ export const support: GuideGroup = {
       numbered: [
         {
           id: "give",
-          heading: "Give or volunteer.",
-          body: "Donate, mentor, teach a skill, provide meals, or help with transportation.",
+          heading: "Volunteer.",
+          body: "Mentor, teach a skill, provide meals, or help with transportation.",
           href: "/give",
         },
         {
