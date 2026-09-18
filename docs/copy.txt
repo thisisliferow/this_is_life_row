@@ -1,0 +1,136 @@
+COPY. Edit the words only.
+Keep every [id], field name, and the same number of items/rows.
+Paste this file (or any block) back in chat to apply content. Layout stays.
+
+============================================================
+HERO
+============================================================
+
+[hero]
+wordmark: This is Life Row.
+headline: We put tools, mentors, and opportunity in the hands of young men who grew up without them.
+
+============================================================
+INTRODUCTION
+============================================================
+
+[introduction]
+nav: Introduction
+
+[introduction.what-is-life-row]
+label: What is Life Row?
+body: Life Row is a nonprofit serving East LA youth and young adults with resources traditionally limited by income.
+
+[introduction.why-we-exist]
+label: Why we exist.
+body:
+Young men turn to the street to get away from home: stress, missing parents, pain. With nowhere to put it, and no place that treats them as if they belong, tension manifests as violence, arrests, and gang involvement.
+
+Income should not be a barrier to becoming who you could be.
+
+Healthy food. Better schools. Gyms, connections, and places to build a future. Kids from money get that access.
+
+[introduction.who-were-here-for]
+label: Who we’re here for.
+body: We champion young men who are misunderstood and misrepresented, including those navigating probation, gang involvement, conflict at home, or simply those in need of a safe place away from home. We focus on young men because the harm, the arrests, and the missing role models fall hardest here.
+
+[introduction.why-here]
+label: Why here.
+body: Our first center is in the Arts District, minutes from Boyle Heights and the 10 Freeway. The resources that collect on the west side of Los Angeles should not stay there. We want them in everyday life here, so the next role models and business owners come from this side of the city.
+
+[introduction.what-access-means]
+label: What access means.
+access 1: Licensed therapists | Professional support for processing pain, understanding emotions, and developing ways to cope.
+access 2: Nutritious meals | A dependable meal and time to sit together, connect, and be known.
+access 3: Gyms, fitness, and wellness | Constructive outlets, healthy routines, teamwork, and care for physical health.
+access 4: Financial experts and education | Practical experience with budgeting, saving, and understanding financial choices.
+access 5: Entrepreneurs and working professionals | Exposure to careers, useful skills, and relationships that can open doors.
+access 6: Leadership and service projects | Opportunities to keep commitments, solve problems, and contribute to others.
+access 7: Field days across Los Angeles | Time to play, discover interests, build friendships, and experience more of the city.
+
+============================================================
+PRINCIPLES
+============================================================
+
+[principles]
+nav: Principles
+banner: What we stand on.
+
+[principles.shared-principles]
+item 1 heading: We care for what we’re entrusted with.
+item 1 body: We steward people, resources, commitments, and the truth of what we report.
+item 2 heading: Discipleship.
+item 2 body: Our foundation is shaped by the teachings of Jesus: love your neighbor, tell the truth, practice mercy, take responsibility, and use what you have to serve others.
+
+[principles.how-we-live]
+label: How we live.
+pair headers: Value | Principle
+pair 1: Belonging | Make room for each other.
+pair 2: Discipline | Show up. Keep your word.
+pair 3: Responsibility | Own your choices. Make things right.
+pair 4: Opportunity | Open doors for each other.
+pair 5: Service | Give back. Support the next class.
+
+============================================================
+COMMUNITY
+============================================================
+
+[community]
+nav: Community
+banner: Life together.
+
+[community.one-community]
+label: One community.
+body: Each class enters together, grows together, and graduates together. One cohort of twelve at a time, ages 10 to 21. Four cohorts a year.
+
+============================================================
+CURRICULUM
+============================================================
+
+[curriculum]
+nav: Curriculum
+banner: A path toward leadership.
+
+[curriculum.weekly-experience]
+label: Weekly experience.
+pair headers: When | Who
+pair 1: Monday, 4 p.m. | Ages 10 to 14.
+pair 2: Wednesday, 4 p.m. | Ages 15 to 17.
+pair 3: Friday, 4 p.m. | Ages 18 to 21.
+pair 4: Sunday, 4 p.m. | All twelve together.
+
+[curriculum.twelve-weeks]
+label: Twelve weeks.
+item 1 heading: Weeks 1 to 3. Belonging, identity, and responsibility.
+item 1 body: Establish trust, recognize goals, and connect personal choices to the future each participant wants.
+item 2 heading: Weeks 4 to 6. Money, work, and independence.
+item 2 body: Practice the skills needed to manage money and approach opportunities with confidence.
+item 3 heading: Weeks 7 to 9. Health, relationships, and self management.
+item 3 body: Develop useful routines and practice responding to stress and conflict.
+item 4 heading: Weeks 10 to 12. Service, leadership, and next steps.
+item 4 body: Apply the cohort’s learning through shared responsibility and a concrete plan beyond graduation.
+
+============================================================
+SUPPORT
+============================================================
+
+[support]
+nav: Support
+banner: Building the first cohort.
+
+[support.help-build-it]
+label: Help us build it.
+item 1 heading: Give time or funding.
+item 1 body: Mentorship, teaching, space, meals, transportation, introductions, or a contribution.
+item 2 heading: Join the interest list.
+item 2 body: For participants and families. Receive updates when eligibility, dates, and enrollment are confirmed.
+item 3 heading: Become a program partner.
+item 3 body: Help deliver a defined part of the curriculum or remove a barrier to participation.
+
+============================================================
+FOOTER
+============================================================
+
+[footer]
+credit: © Life Row
+back: Back to top

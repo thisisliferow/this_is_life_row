@@ -7,31 +7,38 @@ import { MeasureTable } from "@/components/Guide/MeasureTable";
 import { NumberedList } from "@/components/Guide/NumberedList";
 import { PageFooter } from "@/components/Guide/PageFooter";
 import { PairTable } from "@/components/Guide/PairTable";
-import { Sidebar } from "@/components/Guide/Sidebar";
+import { RichText } from "@/components/Guide/RichText";
+import { SiteHeader } from "@/components/Guide/SiteHeader";
 import { SourceTable } from "@/components/Guide/SourceTable";
-import { StatementBody } from "@/components/Guide/StatementBody";
+import { Statement, StatementBody } from "@/components/Guide/StatementBody";
 import { sectionAnchor } from "@/content/Types";
-import type { GuideGroup, GuideHero, SitePage } from "@/content/Types";
+import type { GuideGroup, GuideHero } from "@/content/Types";
 
 export function GuidePage({
   groups,
   hero,
-  pages = [],
 }: {
   groups: GuideGroup[];
   hero: GuideHero;
-  pages?: SitePage[];
 }) {
   return (
-    <div className="min-h-dvh lg:flex">
-      <Sidebar groups={groups} pages={pages} />
-      <div className="content-canvas min-w-0 flex-1">
+    <div className="canvas-ink min-h-dvh">
+      <div className="scroll-progress" aria-hidden />
+      <SiteHeader overlay />
+      <div className="content-canvas min-w-0">
         <Hero {...hero} />
 
-        {groups.map((group) => (
-          <div key={group.id}>
+        {groups.map((group) => {
+          if (!group.heading && group.sections.length === 0) return null;
+
+          return (
+            <div key={group.id}>
             {group.heading ? (
-              <GroupBanner id={group.id} heading={group.heading} />
+              <GroupBanner
+                id={group.id}
+                heading={group.heading}
+                banner={group.banner}
+              />
             ) : (
               <div id={group.id} className="scroll-mt-6" />
             )}
@@ -51,16 +58,22 @@ export function GuidePage({
                 >
                   {hasLeadCopy ? (
                     <StatementBody scale={section.scale}>
-                      {section.lede ? <p>{section.lede}</p> : null}
+                      {section.lede ? (
+                        <p className="text-heading">
+                          <RichText text={section.lede} />
+                        </p>
+                      ) : null}
                       {section.highlights?.length ? (
-                        <ul className="mt-[1em] list-none space-y-[0.35em] p-0">
+                        <ul className="list-none space-y-1 p-0">
                           {section.highlights.map((item) => (
-                            <li key={item}>{item}</li>
+                            <li key={item}>
+                              <RichText text={item} />
+                            </li>
                           ))}
                         </ul>
                       ) : null}
                       {section.paragraphs?.map((paragraph) => (
-                        <p key={paragraph}>{paragraph}</p>
+                        <Statement key={paragraph} text={paragraph} />
                       ))}
                     </StatementBody>
                   ) : null}
@@ -87,17 +100,17 @@ export function GuidePage({
                     />
                   ) : null}
                   {section.closing?.length ? (
-                    <div className="mt-10">
+                    <div className="mt-stack">
                       <StatementBody scale={section.scale}>
                         {section.closing.map((paragraph) => (
-                          <p key={paragraph}>{paragraph}</p>
+                          <Statement key={paragraph} text={paragraph} />
                         ))}
                       </StatementBody>
                     </div>
                   ) : null}
                   {(section.links ?? (section.link ? [section.link] : [])).map(
                     (item) => (
-                      <p key={item.href} className="mt-8 text-body-lg">
+                      <p key={item.href} className="mt-stack text-body">
                         <a
                           href={item.href}
                           className="underline underline-offset-2 hover:opacity-70"
@@ -113,8 +126,9 @@ export function GuidePage({
                 </ContentRow>
               );
             })}
-          </div>
-        ))}
+            </div>
+          );
+        })}
 
         <PageFooter />
       </div>

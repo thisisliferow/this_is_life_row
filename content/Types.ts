@@ -1,14 +1,22 @@
-export type BodyScale = "display" | "statement-md" | "statement-sm" | "body";
-
-export type NumberedItem = {
-  id?: string;
-  heading: string;
-  body: string;
-};
+export type BodyScale = "display" | "body";
 
 export type AccessRow = {
   access: string;
   possible: string;
+};
+
+export type GuideBanner = {
+  src: string;
+  alt: string;
+};
+
+export type NumberedItem = {
+  id?: string;
+  heading: string;
+  body?: string;
+  href?: string;
+  image?: GuideBanner;
+  points?: AccessRow[];
 };
 
 export type CurriculumStage = {
@@ -49,9 +57,11 @@ export type MeasureRow = {
 };
 
 export type GuideHero = {
-  wordmark: string;
+  wordmark?: string;
   kicker?: string;
-  headline: string;
+  headline?: string;
+  image?: GuideBanner;
+  images?: GuideBanner[];
   paragraphs: string[];
 };
 
@@ -84,6 +94,7 @@ export type GuideGroup = {
   id: string;
   label: string;
   heading?: string;
+  banner?: GuideBanner;
   sections: GuideSection[];
 };
 

@@ -12,21 +12,61 @@ export const principles: GuideGroup = {
           id: "equal-access",
           heading: "Equal access and opportunity.",
           body: "Zip codes shouldn’t determine your access to opportunities.",
+          points: [
+            {
+              access: "Entrepreneurs and working professionals",
+              possible:
+                "Exposure to careers, useful skills, and relationships that can open doors.",
+            },
+          ],
         },
         {
-          id: "leadership-means-service",
+          id: "leadership-service",
           heading: "Leadership means service.",
-          body: "We develop our abilities so we can care for others and contribute.",
+          points: [
+            {
+              access: "Leadership and service projects",
+              possible:
+                "Opportunities to keep commitments, solve problems, and contribute to others.",
+            },
+          ],
         },
         {
-          id: "entrusted-with",
-          heading: "We care for what we’re entrusted with.",
-          body: "We steward people, resources, commitments, and the truth of what we report.",
+          id: "field-fun",
+          heading: "Field and fun.",
+          points: [
+            {
+              access: "Field days across Los Angeles",
+              possible:
+                "Time to play, discover interests, build friendships, and experience more of the city.",
+            },
+          ],
         },
         {
-          id: "discipleship",
-          heading: "Discipleship.",
-          body: "Our foundation is shaped by the teachings of Jesus: love your neighbor, tell the truth, practice mercy, take responsibility, and use what you have to serve others.",
+          id: "health-wellness",
+          heading: "Health and wellness.",
+          points: [
+            {
+              access: "Licensed therapists",
+              possible:
+                "Professional support for processing pain, understanding emotions, and developing ways to cope.",
+            },
+            {
+              access: "Nutritious meals",
+              possible:
+                "A dependable meal and time to sit together, connect, and be known.",
+            },
+            {
+              access: "Gyms, fitness, and wellness",
+              possible:
+                "Constructive outlets, healthy routines, teamwork, and care for physical health.",
+            },
+            {
+              access: "Financial experts and education",
+              possible:
+                "Practical experience with budgeting, saving, and understanding financial choices.",
+            },
+          ],
         },
       ],
     },

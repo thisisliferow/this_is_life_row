@@ -1,16 +1,81 @@
-export function MediaSlot() {
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+
+const POSTER = "/hero/poster.jpg";
+const MP4 = "/hero/hero.mp4";
+const VIDEO_WIDTH = 1622;
+const VIDEO_HEIGHT = 1080;
+
+export function MediaSlot({ fill = false }: { fill?: boolean } = {}) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [reduceMotion, setReduceMotion] = useState(false);
+  const [videoFailed, setVideoFailed] = useState(false);
+  const [ready, setReady] = useState(false);
+
+  useEffect(() => {
+    const media = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const update = () => setReduceMotion(media.matches);
+    update();
+    media.addEventListener("change", update);
+    return () => media.removeEventListener("change", update);
+  }, []);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) {
+      return;
+    }
+
+    const markReady = () => setReady(true);
+    video.muted = true;
+    video.defaultMuted = true;
+    video.addEventListener("playing", markReady);
+    if (!video.paused && video.readyState >= 2) {
+      markReady();
+    }
+    void video.play().then(markReady).catch(() => {
+      // Autoplay can be blocked; the cover poster stays visible.
+    });
+
+    return () => video.removeEventListener("playing", markReady);
+  }, [reduceMotion, videoFailed]);
+
   return (
     <div
-      className="relative aspect-video w-full bg-[#F4F4F4]"
-      role="img"
-      aria-label="Video"
+      className={`hero-media min-w-0 w-full overflow-hidden bg-ink ${
+        fill ? "absolute inset-0" : "relative aspect-[16/10]"
+      }`}
     >
-      <span
-        aria-hidden="true"
-        className="absolute top-1/2 left-1/2 flex size-16 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white/80"
-      >
-        <span className="ml-1 size-0 border-y-8 border-l-[14px] border-y-transparent border-l-[#151515]" />
-      </span>
+      <img
+        src={POSTER}
+        alt=""
+        width={VIDEO_WIDTH}
+        height={VIDEO_HEIGHT}
+        className="hero-poster"
+        decoding="async"
+        fetchPriority="high"
+      />
+      {reduceMotion || videoFailed ? null : (
+        <video
+          ref={videoRef}
+          className={`hero-video${ready ? "" : " hero-video-pending"}`}
+          width={VIDEO_WIDTH}
+          height={VIDEO_HEIGHT}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          disablePictureInPicture
+          controlsList="nodownload nofullscreen noremoteplayback"
+          aria-hidden
+          tabIndex={-1}
+          onError={() => setVideoFailed(true)}
+        >
+          <source src={MP4} type="video/mp4" />
+        </video>
+      )}
     </div>
   );
 }

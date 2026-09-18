@@ -1,24 +1,35 @@
+import { RichText } from "@/components/Guide/RichText";
 import type { BodyScale } from "@/content";
 
 const scaleClass: Record<BodyScale, string> = {
   display: "text-display font-light",
-  "statement-md": "text-statement-md font-normal",
-  "statement-sm": "text-statement-sm font-normal",
-  body: "text-body-lg font-normal",
+  body: "text-body",
 };
 
 export function StatementBody({
-  scale = "statement-sm",
+  scale = "body",
   children,
 }: {
   scale?: BodyScale;
   children: React.ReactNode;
 }) {
   return (
-    <div
-      className={`statement-body max-w-[52rem] [&_p+p]:mt-[1em] ${scaleClass[scale]}`}
-    >
+    <div className={`stack-copy rich-accent max-w-measure ${scaleClass[scale]}`}>
       {children}
     </div>
+  );
+}
+
+export function Statement({
+  text,
+  className,
+}: {
+  text: string;
+  className?: string;
+}) {
+  return (
+    <p className={className}>
+      <RichText text={text} />
+    </p>
   );
 }

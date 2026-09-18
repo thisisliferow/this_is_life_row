@@ -11,14 +11,14 @@ export function PairTable({
   rows: PairRow[];
 }) {
   return (
-    <div className="mt-10 overflow-x-auto">
-      <table className="w-full border-collapse text-left text-[1rem] leading-[1.45]">
+    <div className="mt-8 max-w-measure overflow-x-auto">
+      <table className="w-full border-collapse text-left text-body">
         <thead>
           <tr>
-            <th className="border-b border-[#B6B5B0] py-3 pr-6 text-[12px] font-medium text-[#8A8A8A]">
+            <th className="cell-head border-b border-line-strong pr-6 text-label text-muted">
               {headers[0]}
             </th>
-            <th className="border-b border-[#B6B5B0] py-3 text-[12px] font-medium text-[#8A8A8A]">
+            <th className="cell-head border-b border-line-strong text-label text-muted">
               {headers[1]}
             </th>
           </tr>
@@ -28,13 +28,11 @@ export function PairTable({
             <tr key={`${index}-${row.label}`}>
               <th
                 scope="row"
-                className="w-[38%] border-b border-[#E8E8E8] py-3.5 pr-8 align-top font-medium"
+                className="cell w-[var(--col-label)] border-b border-line pr-8 align-top font-medium"
               >
                 {row.label}
               </th>
-              <td className="border-b border-[#E8E8E8] py-3.5 align-top">
-                {row.detail}
-              </td>
+              <td className="cell border-b border-line align-top">{row.detail}</td>
             </tr>
           ))}
         </tbody>

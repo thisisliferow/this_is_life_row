@@ -2,10 +2,10 @@ import type { SourceRow } from "@/content/Types";
 
 export function SourceTable({ rows }: { rows: SourceRow[] }) {
   return (
-    <ul className="mt-10 max-w-[822px] list-none space-y-8 p-0 text-body-lg lg:max-w-[69.6cqw]">
+    <ul className="mt-stack flex max-w-measure list-none flex-col gap-[var(--space-8)] p-0 text-body">
       {rows.map((row) => (
         <li key={row.area}>
-          <p className="text-label font-medium">{row.area}</p>
+          <p className="text-label text-muted">{row.area}</p>
           <p className="mt-2">
             {row.evidence}{" "}
             <a

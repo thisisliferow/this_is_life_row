@@ -1,32 +1,88 @@
+import Image from "next/image";
+import { Brandmark } from "@/components/Guide/Brandmark";
 import { MediaSlot } from "@/components/Guide/MediaSlot";
+import { RichText } from "@/components/Guide/RichText";
+import { WorkSentence } from "@/components/Guide/WorkSentence";
 import type { GuideHero } from "@/content/Types";
 
-export function Hero({ wordmark, kicker, headline, paragraphs }: GuideHero) {
+export function Hero({
+  headline,
+  kicker,
+  paragraphs,
+  image,
+  images,
+}: GuideHero) {
+  const photos = images ?? (image ? [image] : []);
+
   return (
-    <section className="px-6 pt-28 pb-16 lg:px-[3.4cqw] lg:pt-[calc(105px+9cqw)] lg:pb-[6cqw]">
-      <p className="text-banner whitespace-nowrap font-light tracking-[-0.05em] text-[clamp(1.75rem,8.2cqw,7.25rem)]">
-        {wordmark}
-      </p>
-      <div className="mt-16 lg:mt-[calc(40px+4cqw)]">
-        {kicker ? (
-          <p className="mb-5 max-w-[40rem] text-caption text-[#8A8A8A]">
-            {kicker}
-          </p>
-        ) : null}
-        <h1 className="whitespace-nowrap text-[clamp(1.15rem,3.6cqw,2.75rem)] font-normal tracking-[-0.03em]">
-          {headline}
-        </h1>
-        {paragraphs.length ? (
-          <div className="hero-intro mt-8 max-w-[820px] text-body-lg text-[#444] lg:max-w-[74cqw] [&_p+p]:mt-[2.2em]">
-            {paragraphs.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
+    <>
+      <section
+        id="introduction"
+        className="relative desktop:h-svh desktop:overflow-hidden"
+      >
+        <div className="hero-frame relative aspect-[16/10]">
+          <MediaSlot fill />
+          <div className="pointer-events-none absolute inset-0 hidden items-center justify-center desktop:flex">
+            <Brandmark
+              decorative
+              className="h-auto w-[min(29.12rem,40.32%)] object-contain opacity-75"
+            />
           </div>
-        ) : null}
-      </div>
-      <div className="mt-16 lg:mt-[6cqw]">
-        <MediaSlot />
-      </div>
-    </section>
+        </div>
+        <div className="px-gutter py-8 desktop:absolute desktop:inset-x-0 desktop:bottom-0 desktop:z-10 desktop:pb-10 desktop:pt-0">
+          <h1 className="max-w-measure text-title desktop:text-display">
+            <WorkSentence />
+          </h1>
+        </div>
+      </section>
+      {kicker || headline || paragraphs.length || photos.length ? (
+        <div className="px-gutter py-12 lg:py-16">
+          {photos.length ? (
+            <div className="mb-8 grid grid-cols-1 gap-4 lg:mb-10 desktop:grid-cols-3 desktop:gap-6">
+              {photos.map((photo, index) => (
+                <div
+                  key={photo.src}
+                  className={`relative aspect-[2/3] overflow-hidden bg-ink ${
+                    index > 0 ? "hidden desktop:block" : ""
+                  }`}
+                >
+                  <Image
+                    src={photo.src}
+                    alt={photo.alt}
+                    fill
+                    priority={index === 0}
+                    sizes={
+                      index === 0
+                        ? "(width >= 48rem) 30vw, calc(100vw - 3rem)"
+                        : "(width >= 48rem) 30vw, 0px"
+                    }
+                    className="object-cover"
+                  />
+                </div>
+              ))}
+            </div>
+          ) : null}
+          {kicker ? (
+            <p className="mb-5 max-w-[40rem] text-caption">{kicker}</p>
+          ) : null}
+          {headline ? (
+            <p className="rich-accent max-w-measure text-title">
+              <RichText text={headline} />
+            </p>
+          ) : null}
+          {paragraphs.length ? (
+            <div
+              className={`stack-copy rich-accent max-w-measure text-body ${headline ? "mt-6" : ""}`}
+            >
+              {paragraphs.map((paragraph) => (
+                <p key={paragraph}>
+                  <RichText text={paragraph} />
+                </p>
+              ))}
+            </div>
+          ) : null}
+        </div>
+      ) : null}
+    </>
   );
 }
