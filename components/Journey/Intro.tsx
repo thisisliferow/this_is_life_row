@@ -9,8 +9,8 @@ import {
   useTransform,
 } from "framer-motion";
 
-const POSTER = "/hero/poster.jpg";
-const MP4 = "/hero/hero.mp4";
+const POSTER = "/hero/poster-30.jpg";
+const MP4 = "/hero/hero-30.mp4";
 
 export function Intro() {
   const container = useRef<HTMLDivElement>(null);

@@ -25,7 +25,7 @@ export function Hero({
           <div className="pointer-events-none absolute inset-0 hidden items-center justify-center desktop:flex">
             <Brandmark
               decorative
-              className="h-auto w-[min(29.12rem,40.32%)] object-contain opacity-75"
+              className="h-auto w-[min(29.12rem,40.32%)] object-contain"
             />
           </div>
         </div>
