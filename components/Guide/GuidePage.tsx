@@ -1,5 +1,6 @@
 import { AccessTable } from "@/components/Guide/AccessTable";
 import { ContentRow } from "@/components/Guide/ContentRow";
+import { CopyEmail } from "@/components/Guide/CopyEmail";
 import { CurriculumStages } from "@/components/Guide/CurriculumStages";
 import { GroupBanner } from "@/components/Guide/GroupBanner";
 import { Hero } from "@/components/Guide/Hero";
@@ -83,6 +84,14 @@ export function GuidePage({
                       items={section.numbered}
                       layout={section.numberedLayout}
                     />
+                  ) : null}
+                  {section.copyEmail ? (
+                    <p className="contact-email">
+                      <CopyEmail
+                        email={section.copyEmail}
+                        label={section.copyEmail}
+                      />
+                    </p>
                   ) : null}
                   {section.stages ? (
                     <CurriculumStages stages={section.stages} />

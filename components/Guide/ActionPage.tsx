@@ -5,9 +5,11 @@ import { SiteHeader } from "@/components/Guide/SiteHeader";
 export function ActionPage({
   heading,
   body,
+  action,
 }: {
   heading: string;
   body: string;
+  action?: { href: string; label: string };
 }) {
   return (
     <div className="canvas-ink min-h-dvh">
@@ -19,6 +21,18 @@ export function ActionPage({
           <p className="rich-accent mt-stack max-w-measure text-body">
             <RichText text={body} />
           </p>
+          {action ? (
+            <p className="mt-stack text-body">
+              <a
+                href={action.href}
+                className="underline underline-offset-2 hover:opacity-70"
+                target="_blank"
+                rel="noreferrer"
+              >
+                {action.label}
+              </a>
+            </p>
+          ) : null}
         </section>
         <PageFooter />
       </div>

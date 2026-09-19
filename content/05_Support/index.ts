@@ -1,3 +1,4 @@
+import { volunteerEmail } from "../contact";
 import type { GuideGroup } from "../Types";
 
 export const support: GuideGroup = {
@@ -11,26 +12,7 @@ export const support: GuideGroup = {
   sections: [
     {
       id: "help-launch-it",
-      numbered: [
-        {
-          id: "give",
-          heading: "Volunteer.",
-          body: "Mentor, teach a skill, provide meals, or help with transportation.",
-          href: "/give",
-        },
-        {
-          id: "partner",
-          heading: "Back us.",
-          body: "Provide space, professional services, or recurring funding through your organization.",
-          href: "/partner",
-        },
-        {
-          id: "interest-list",
-          heading: "Families.",
-          body: "Get updates when eligibility, dates, and enrollment are confirmed.",
-          href: "/interest",
-        },
-      ],
+      copyEmail: volunteerEmail,
     },
   ],
 };

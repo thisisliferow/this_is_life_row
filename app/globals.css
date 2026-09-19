@@ -238,6 +238,17 @@ body {
   font-weight: 300;
 }
 
+.contact-email {
+  max-width: 100%;
+  font-size: clamp(
+    1.05rem,
+    calc((100cqi - var(--space-gutter) * 2) / 17),
+    var(--text-display)
+  );
+  line-height: 1.12;
+  font-weight: 300;
+}
+
 .text-title {
   font-size: var(--text-title);
   line-height: 1.15;

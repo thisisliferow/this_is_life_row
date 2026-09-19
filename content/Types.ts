@@ -82,6 +82,7 @@ export type GuideSection = {
   access?: AccessRow[];
   numbered?: NumberedItem[];
   numberedLayout?: "display" | "stack";
+  copyEmail?: string;
   stages?: CurriculumStage[];
   sources?: SourceRow[];
   measures?: MeasureRow[];

@@ -3,16 +3,7 @@ import { RichText } from "@/components/Guide/RichText";
 import type { NumberedItem } from "@/content";
 
 function ItemHeading({ item }: { item: NumberedItem }) {
-  if (!item.href) return item.heading;
-
-  return (
-    <a
-      href={item.href}
-      className="underline underline-offset-2 hover:opacity-70"
-    >
-      {item.heading}
-    </a>
-  );
+  return item.heading;
 }
 
 function Points({
