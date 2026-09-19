@@ -1,9 +1,25 @@
 import Image from "next/image";
+import { ExternalTextLink } from "@/components/Guide/ExternalTextLink";
 import { RichText } from "@/components/Guide/RichText";
 import type { NumberedItem } from "@/content";
 
 function ItemHeading({ item }: { item: NumberedItem }) {
-  return item.heading;
+  if (!item.href) return item.heading;
+
+  if (item.external) {
+    return (
+      <ExternalTextLink href={item.href}>{item.heading}</ExternalTextLink>
+    );
+  }
+
+  return (
+    <a
+      href={item.href}
+      className="underline underline-offset-2 hover:opacity-70"
+    >
+      {item.heading}
+    </a>
+  );
 }
 
 function Points({

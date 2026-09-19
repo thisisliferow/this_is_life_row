@@ -12,7 +12,27 @@ export const support: GuideGroup = {
   sections: [
     {
       id: "help-launch-it",
-      copyEmail: volunteerEmail,
+      numbered: [
+        {
+          id: "give",
+          heading: "Give or volunteer.",
+          body: "Mentor, teach a skill, provide meals, or help with transportation.",
+          href: "/give",
+        },
+        {
+          id: "partner",
+          heading: "Partner with us.",
+          body: "Provide space, professional services, or recurring funding through your organization.",
+          href: "/partner",
+        },
+        {
+          id: "interest-list",
+          heading: "Join the interest list",
+          body: "Get updates when eligibility, dates, and enrollment are confirmed.",
+          href: `mailto:${volunteerEmail}`,
+          external: true,
+        },
+      ],
     },
   ],
 };

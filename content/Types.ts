@@ -15,6 +15,7 @@ export type NumberedItem = {
   heading: string;
   body?: string;
   href?: string;
+  external?: boolean;
   image?: GuideBanner;
   points?: AccessRow[];
 };
