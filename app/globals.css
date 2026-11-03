@@ -69,6 +69,12 @@
   }
 }
 
+@custom-variant wide {
+  @media (width >= 64rem) {
+    @slot;
+  }
+}
+
 html {
   color-scheme: dark;
   background: #151515;
@@ -175,13 +181,24 @@ body {
   opacity: 0;
 }
 
+.hero-lockup {
+  animation: hero-lockup-fade 7s ease-out forwards;
+}
+
+@keyframes hero-lockup-fade {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0.5;
+  }
+}
+
 @media (width >= 48rem) {
-  .hero-frame {
-    position: absolute;
-    inset: 0;
-    aspect-ratio: auto;
-    width: auto;
+  #introduction {
     height: auto;
+    overflow: visible;
   }
 }
 
@@ -202,6 +219,11 @@ body {
   .nav-marker {
     animation: none;
     transition: none;
+  }
+
+  .hero-lockup {
+    animation: none;
+    opacity: 0.5;
   }
 }
 
@@ -309,6 +331,26 @@ body {
 
 .max-w-measure {
   max-width: var(--measure);
+}
+
+.work-line {
+  max-width: var(--measure);
+  margin-inline: 0;
+  text-align: start;
+  font-size: var(--text-title);
+}
+
+@media (width >= 48rem) {
+  .work-line {
+    max-width: none;
+    margin-inline: auto;
+    text-align: center;
+    font-size: clamp(1.5rem, 2.85vw, 2.9rem);
+  }
+
+  h2.work-line {
+    max-width: 46rem;
+  }
 }
 
 .stack-copy > * + * {

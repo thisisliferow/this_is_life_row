@@ -3,9 +3,30 @@ import type { GuideBanner } from "@/content/Types";
 
 type GroupBannerProps = {
   id: string;
-  heading: string;
+  heading?: string;
   banner?: GuideBanner;
 };
+
+function HeadingLines({ heading }: { heading: string }) {
+  const lines = heading.match(/[^.!?]+[.!?]+/g)?.map((line) => line.trim());
+  if (!lines || lines.length < 2) return heading;
+
+  return (
+    <>
+      {lines.map((line, index) => (
+        <span key={line}>
+          {index > 0 ? (
+            <>
+              <br className="hidden desktop:block" />
+              <span className="desktop:hidden"> </span>
+            </>
+          ) : null}
+          {line}
+        </span>
+      ))}
+    </>
+  );
+}
 
 export function GroupBanner({ id, heading, banner }: GroupBannerProps) {
   return (
@@ -17,9 +38,11 @@ export function GroupBanner({ id, heading, banner }: GroupBannerProps) {
           </div>
         </div>
       ) : null}
-      <h2 className="px-gutter pt-12 text-display font-light lg:pt-16">
-        {heading}
-      </h2>
+      {heading ? (
+        <h2 className="work-line px-gutter pt-12 text-title desktop:text-display lg:pt-16">
+          <HeadingLines heading={heading} />
+        </h2>
+      ) : null}
     </section>
   );
 }

@@ -1,4 +1,3 @@
-import { PageFooter } from "@/components/Guide/PageFooter";
 import { RichText } from "@/components/Guide/RichText";
 import { SiteHeader } from "@/components/Guide/SiteHeader";
 
@@ -34,7 +33,6 @@ export function ActionPage({
             </p>
           ) : null}
         </section>
-        <PageFooter />
       </div>
     </div>
   );

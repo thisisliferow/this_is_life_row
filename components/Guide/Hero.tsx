@@ -13,32 +13,32 @@ export function Hero({
   images,
 }: GuideHero) {
   const photos = images ?? (image ? [image] : []);
+  const blurb = Boolean(kicker || headline || paragraphs.length);
+  const afterHero = Boolean(blurb || photos.length);
 
   return (
     <>
-      <section
-        id="introduction"
-        className="relative desktop:h-svh desktop:overflow-hidden"
-      >
+      <section id="introduction" className="relative">
         <div className="hero-frame relative aspect-[16/10]">
           <MediaSlot fill />
           <div className="pointer-events-none absolute inset-0 hidden items-center justify-center desktop:flex">
             <Brandmark
               decorative
-              className="h-auto w-[min(29.12rem,40.32%)] object-contain"
+              className="hero-lockup h-auto w-[min(29.12rem,40.32%)] object-contain"
             />
           </div>
         </div>
-        <div className="px-gutter py-8 desktop:absolute desktop:inset-x-0 desktop:bottom-0 desktop:z-10 desktop:pb-10 desktop:pt-0">
-          <h1 className="max-w-measure text-title desktop:text-display">
+        <div
+          className={`flex flex-col px-gutter ${
+            afterHero ? "pb-12 lg:pb-16" : "pb-8"
+          }`}
+        >
+          <h1 className="work-line order-1 py-8 text-title desktop:order-3 desktop:pb-0 desktop:pt-12 lg:desktop:pt-16">
             <WorkSentence />
           </h1>
-        </div>
-      </section>
-      {kicker || headline || paragraphs.length || photos.length ? (
-        <div className="px-gutter py-12 lg:py-16">
+
           {photos.length ? (
-            <div className="mb-8 grid grid-cols-1 gap-4 lg:mb-10 desktop:grid-cols-3 desktop:gap-6">
+            <div className="order-2 mb-8 grid grid-cols-1 gap-4 desktop:mb-0 desktop:grid-cols-3 desktop:gap-6">
               {photos.map((photo, index) => (
                 <div
                   key={photo.src}
@@ -62,27 +62,34 @@ export function Hero({
               ))}
             </div>
           ) : null}
-          {kicker ? (
-            <p className="mb-5 max-w-[40rem] text-caption">{kicker}</p>
-          ) : null}
-          {headline ? (
-            <p className="rich-accent max-w-measure text-title">
-              <RichText text={headline} />
-            </p>
-          ) : null}
-          {paragraphs.length ? (
-            <div
-              className={`stack-copy rich-accent max-w-measure text-body ${headline ? "mt-6" : ""}`}
-            >
-              {paragraphs.map((paragraph) => (
-                <p key={paragraph}>
-                  <RichText text={paragraph} />
+
+          {blurb ? (
+            <div className="order-3 desktop:order-1 desktop:pb-12 desktop:pt-12 lg:desktop:pb-16 lg:desktop:pt-16">
+              {kicker ? (
+                <p className="mb-5 max-w-[40rem] text-caption desktop:mx-auto">
+                  {kicker}
                 </p>
-              ))}
+              ) : null}
+              {headline ? (
+                <p className="work-line rich-accent text-title">
+                  <RichText text={headline} />
+                </p>
+              ) : null}
+              {paragraphs.length ? (
+                <div
+                  className={`stack-copy rich-accent max-w-measure text-body desktop:mx-auto ${headline ? "mt-6" : ""}`}
+                >
+                  {paragraphs.map((paragraph) => (
+                    <p key={paragraph}>
+                      <RichText text={paragraph} />
+                    </p>
+                  ))}
+                </div>
+              ) : null}
             </div>
           ) : null}
         </div>
-      ) : null}
+      </section>
     </>
   );
 }

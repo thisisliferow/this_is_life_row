@@ -4,14 +4,21 @@ type ContentRowProps = {
   id: string;
   label?: string;
   caption?: string;
+  flushBottom?: boolean;
   children: React.ReactNode;
 };
 
-export function ContentRow({ id, label, caption, children }: ContentRowProps) {
+export function ContentRow({
+  id,
+  label,
+  caption,
+  flushBottom = false,
+  children,
+}: ContentRowProps) {
   return (
     <section
       id={id}
-      className="scroll-mt-20 px-gutter pt-6 pb-16 lg:pb-24"
+      className={`scroll-mt-20 px-gutter pt-6 ${flushBottom ? "pb-0" : "pb-16 lg:pb-24"}`}
     >
       <Reveal>
         {label || caption ? (

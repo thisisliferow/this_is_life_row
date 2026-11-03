@@ -22,6 +22,9 @@ export function WorkSentence() {
   return (
     <span>
       {workSentence.lead}{" "}
+      <span className="desktop:whitespace-nowrap">{workSentence.possess}</span>
+      <span className="desktop:hidden"> </span>
+      <br className="hidden desktop:block" />
       <AnimatePresence mode="wait">
         <motion.span
           key={word}

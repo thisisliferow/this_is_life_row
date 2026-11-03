@@ -1,7 +1,8 @@
 import type { GuideHero } from "./Types";
 
 export const workSentence = {
-  lead: "We put tools, mentors, and opportunity in the hands of tomorrow's",
+  lead: "We put tools, mentors, and opportunity in the hands",
+  possess: "of tomorrow's",
   rotate: ["role models", "entrepreneurs", "creators", "leaders"],
 };
 

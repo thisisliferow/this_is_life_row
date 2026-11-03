@@ -1,1 +1,1 @@
-export const volunteerEmail = "privatesocialnetwork@pm.me";
+export const volunteerEmail = "contact@privatesocialnetwork.support";

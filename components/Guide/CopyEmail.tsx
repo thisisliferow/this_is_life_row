@@ -1,18 +1,10 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { CopyIcon } from "@/components/Guide/icons";
+import FlyingButton from "@/components/Guide/FlyingButton";
+import { supportInvite } from "@/content/05_Support";
 
-async function writeEmail(email: string) {
-  if (navigator.clipboard?.writeText) {
-    try {
-      await navigator.clipboard.writeText(email);
-      return true;
-    } catch {
-      // Fall through to the textarea path.
-    }
-  }
-
+function writeEmail(email: string) {
   try {
     const field = document.createElement("textarea");
     field.value = email;
@@ -25,15 +17,21 @@ async function writeEmail(email: string) {
     field.setSelectionRange(0, email.length);
     const ok = document.execCommand("copy");
     document.body.removeChild(field);
-    return ok;
+    if (ok) {
+      void navigator.clipboard?.writeText?.(email);
+      return true;
+    }
   } catch {
-    return false;
+    // Fall through to the clipboard path.
   }
+
+  void navigator.clipboard?.writeText?.(email);
+  return Boolean(navigator.clipboard?.writeText);
 }
 
 export function CopyEmail({
   email,
-  label = "Contact us.",
+  label = supportInvite,
   className,
 }: {
   email: string;
@@ -47,8 +45,8 @@ export function CopyEmail({
     return () => window.clearTimeout(timer.current);
   }, []);
 
-  async function copy() {
-    const ok = await writeEmail(email);
+  function copy() {
+    const ok = writeEmail(email);
     if (!ok) return;
 
     setCopied(true);
@@ -57,14 +55,36 @@ export function CopyEmail({
   }
 
   return (
-    <button
-      type="button"
-      onClick={copy}
-      className={`inline-flex max-w-full min-w-0 cursor-pointer items-baseline gap-1 border-0 bg-transparent p-0 font-[inherit] align-baseline text-[var(--accent)] underline decoration-current underline-offset-2 transition-opacity hover:opacity-70 ${className ?? ""}`}
-      aria-label={copied ? "Copied." : `Copy ${email}`}
+    <div
+      className={`relative h-80 w-full ${className ?? ""}`}
+      aria-label={copied ? "Email copied." : `Copy ${email}`}
     >
-      <span className="min-w-0 [overflow-wrap:anywhere]">{copied ? "Copied." : label}</span>
-      <CopyIcon className="size-[0.9em] shrink-0" />
-    </button>
+      <FlyingButton
+        className="flying-button--line"
+        theme="dark"
+        size="extra-large"
+        radius={999}
+        altitude={110}
+        hoverTime={2.4}
+        jets={2}
+        thrusters
+        trigger="click"
+        auto
+        carryCursor={false}
+        smoke={1}
+        turbulence={1}
+        wobble={1}
+        ramp={false}
+        buttonColor="transparent"
+        textColor="#ffffff"
+        thrustColor="#8ec5ff"
+        smokeColor="#eef1f6"
+        onClick={() => {
+          copy();
+        }}
+      >
+        {copied ? "Email copied." : label}
+      </FlyingButton>
+    </div>
   );
 }

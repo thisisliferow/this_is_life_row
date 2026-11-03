@@ -1,11 +1,11 @@
 import { AccessTable } from "@/components/Guide/AccessTable";
 import { ContentRow } from "@/components/Guide/ContentRow";
+import { CopyEmail } from "@/components/Guide/CopyEmail";
 import { CurriculumStages } from "@/components/Guide/CurriculumStages";
 import { GroupBanner } from "@/components/Guide/GroupBanner";
 import { Hero } from "@/components/Guide/Hero";
 import { MeasureTable } from "@/components/Guide/MeasureTable";
 import { NumberedList } from "@/components/Guide/NumberedList";
-import { PageFooter } from "@/components/Guide/PageFooter";
 import { PairTable } from "@/components/Guide/PairTable";
 import { RichText } from "@/components/Guide/RichText";
 import { SiteHeader } from "@/components/Guide/SiteHeader";
@@ -33,7 +33,7 @@ export function GuidePage({
 
           return (
             <div key={group.id}>
-            {group.heading ? (
+            {group.heading || group.banner ? (
               <GroupBanner
                 id={group.id}
                 heading={group.heading}
@@ -55,6 +55,7 @@ export function GuidePage({
                   id={id}
                   label={section.label}
                   caption={section.caption}
+                  flushBottom={Boolean(section.copyEmail)}
                 >
                   {hasLeadCopy ? (
                     <StatementBody scale={section.scale}>
@@ -83,6 +84,11 @@ export function GuidePage({
                       items={section.numbered}
                       layout={section.numberedLayout}
                     />
+                  ) : null}
+                  {section.copyEmail ? (
+                    <div className={hasLeadCopy || section.numbered ? "mt-stack" : ""}>
+                      <CopyEmail email={section.copyEmail} />
+                    </div>
                   ) : null}
                   {section.stages ? (
                     <CurriculumStages stages={section.stages} />
@@ -129,8 +135,6 @@ export function GuidePage({
             </div>
           );
         })}
-
-        <PageFooter />
       </div>
     </div>
   );

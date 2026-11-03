@@ -8,8 +8,7 @@ export const introduction: GuideGroup = {
 
 export const access: GuideGroup = {
   id: "access",
-  label: "What we provide.",
-  heading: "What we provide.",
+  label: "Offerings.",
   sections: [
     {
       id: "offerings",
