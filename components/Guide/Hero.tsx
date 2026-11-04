@@ -19,9 +19,9 @@ export function Hero({
   return (
     <>
       <section id="introduction" className="relative">
-        <div className="hero-frame relative aspect-[16/10]">
+        <div className="hero-frame relative aspect-[16/10] desktop:aspect-auto desktop:h-dvh desktop:overflow-hidden">
           <MediaSlot fill />
-          <div className="pointer-events-none absolute inset-0 hidden items-center justify-center desktop:flex">
+          <div className="pointer-events-none absolute inset-x-0 top-0 z-10 hidden h-full max-h-dvh items-center justify-center desktop:flex">
             <Brandmark
               decorative
               className="hero-lockup h-auto w-[min(29.12rem,40.32%)] object-contain"
