@@ -2015,7 +2015,7 @@ export default function FlyingButton({
   auto = false,
   carryCursor = true,
   ramp = false,
-  rampColor,
+  rampColor = undefined,
   smoke = 1,
   turbulence = 1,
   wobble = 1,
@@ -2024,7 +2024,7 @@ export default function FlyingButton({
   buttonColor,
   textColor,
   className = '',
-  style
+  style = undefined,
 }) {
   const rootRef = useRef(null);
   const canvasRef = useRef(null);
